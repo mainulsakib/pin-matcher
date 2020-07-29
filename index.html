@@ -43,7 +43,7 @@
                             </div>
                             <div>
                                 <button id="submit" type="submit" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <p id="try" class="action-left"><span id="checkTry">3</span> try left</p>
                             </div>
                     </div>
                 </div>
@@ -54,68 +54,7 @@
             <p id="pinMatch" class="notify">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
-   <script>
-    //    pin Match section
-       var pinDidNotMatch=document.getElementById("pinDidNotMatch")
-       pinDidNotMatch.style.display="none";
-       var pinMatch=document.getElementById("pinMatch");
-       pinMatch.style.display="none"
-    // pin generate section 
-    var generatePin=document.getElementById("generatePin")
-    generatePin.addEventListener("click",function(){
-       var  random= Math.floor(1000 + Math.random() * 9000);
-       document.getElementById("inputText").value=random;
-       
-    })
-    // button  section
-     var Button=document.getElementsByClassName("button");
-     for (let i = 0; i < Button.length; i++) {
-         Button[i].addEventListener("click",function(){
-        var output=getOutput();
-        output=output+this.id;
-          printOutput(output);
-         
-         })    
-     }
-
-    //  submit section
-    let submit=document.getElementById("submit")
-    submit.addEventListener("click",function(){
-       var random=document.getElementById("inputText").value;
-       var number= document.getElementById("outputValue").value;
-       if(random==number){
-        
-        var pinMatch=document.getElementById("pinMatch");
-       pinMatch.style.display="block";
-    
-       }
-       else {
-        var pinDidNotMatch=document.getElementById("pinDidNotMatch")
-       pinDidNotMatch.style.display="block";
-       }
-    
-    }) 
-    var clear=document.getElementById("clear")
-       clear.addEventListener('click',function(){
-            printOutput("");
-        }) 
-   document.getElementById("back").addEventListener("click",function(){
-            var output=getOutput().toString()
-           if(output) {
-                output=output.substr(0,output.length-1);
-                printOutput(output);
-           }
-        
-    })
-        
-     
-// function
-   function getOutput(){
-        return document.getElementById("outputValue").value;
-    }
-   function printOutput(num){
-    return  document.getElementById("outputValue").value=num;     
-   }
-   </script>
+ <script src="script.js"></script>
+   
 </body>
 </html>
